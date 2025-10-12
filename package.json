@@ -1,0 +1,27 @@
+{
+  "name": "2025-nodejs-practices",
+  "version": "1.0.0",
+  "description": "Practice NodeJS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootofmylife/2025-nodejs-practices.git"
+  },
+  "author": "Duc Do",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rootofmylife/2025-nodejs-practices/issues"
+  },
+  "homepage": "https://github.com/rootofmylife/2025-nodejs-practices#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
