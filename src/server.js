@@ -1,9 +1,27 @@
 import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import morgan from 'morgan';
+import env from './env.js';
+
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import goldRoutes from './routes/goldRoutes.js';
 
 const app = express();
+
+// Middleware
+app.use(helmet());
+app.use(cors({
+  origin: env.CORS_ORIGIN,
+  credentials: true,
+}));
+// Configure Morgan logging format based on environment
+app.use(morgan( env.isProd ? 'combined' : 'dev', {
+  skip: () => env.isTest, // Skip logging in test environment
+}));
+app.use(express.json()); // Parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 // Routes
 app.use('/api/auth', authRoutes);
